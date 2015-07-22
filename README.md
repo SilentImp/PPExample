@@ -81,11 +81,11 @@
 
     /* Добавляем скрипт, общий для бекенда и фронтенда */
     var pipe = require('./common.js')
-        /* Подключаем скрипт коннектора промиспайпов */
+        /* Подключаем скрипт HTTP коннектора промиспайпов */
         , connectors = require('./node_modules/promise-pipe/example/connectors/HTTPDuplexStream')
         /* Получаем экземпляр промиспайпа, созданный в этом скрипте */
         , PromisePipe = pipe.PromisePipe
-    /* Указыаем какой транспорт используется */
+    /* Указыаем какой транспорт используется при переходе с сервера на клиент */
     PromisePipe.stream('server','client').connector(connectors.HTTPServerClientStream(app));
 
 Это позволит обрабатывать сервисную часть промиспайпов.
